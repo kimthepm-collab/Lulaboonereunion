@@ -2933,3 +2933,17 @@ nav a {
     margin-right: auto;
   }
 }
+
+/* =========================================================
+   WEEKEND HEADING — CONTROLLED EDITORIAL LINE BREAK
+   Keeps the desktop/tablet composition intentional.
+========================================================= */
+
+.weekend h2 {
+  max-width: 1000px;
+}
+
+.weekend h2 em {
+  display: block;
+  margin-top: 0.08em;
+}
