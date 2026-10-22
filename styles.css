@@ -2799,3 +2799,137 @@ li,
     padding-right: 16px;
   }
 }
+
+/* =========================================================
+   DESKTOP + MOBILE FINAL POLISH
+   Fixes hero word splitting and CTA alignment consistency.
+========================================================= */
+
+/* Explicitly override the earlier global overflow-wrap:anywhere rule
+   on display typography and CTA labels at ALL viewport sizes. */
+.hero h1 span,
+.hero h1 em,
+.hero h1 strong,
+.section h2,
+.section h2 em,
+.hotel-section h2,
+.hotel-section h2 em,
+.detroit-section h2,
+.detroit-section h2 span,
+.map-copy h2,
+.map-copy h2 em,
+.closing h2,
+.closing h2 em,
+.track h3,
+.button,
+.hotel-book-button,
+.map-directions,
+.registration-button,
+.brand span,
+.brand small,
+nav a {
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
+}
+
+/* Desktop hero: preserve the bold editorial scale without forcing words
+   outside the available text column. */
+@media (min-width: 1101px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.08fr) minmax(420px, .92fr);
+    column-gap: clamp(38px, 4.5vw, 72px);
+  }
+
+  .hero-copy {
+    max-width: 720px;
+  }
+
+  .hero h1 {
+    line-height: .88;
+  }
+
+  .hero h1 span {
+    font-size: clamp(3.2rem, 5vw, 6.35rem);
+    line-height: .9;
+    letter-spacing: -.065em;
+  }
+
+  .hero h1 em {
+    font-size: clamp(1.9rem, 3.15vw, 3.9rem);
+    margin-left: 17%;
+  }
+
+  .hero h1 strong {
+    font-size: clamp(4rem, 6.5vw, 8rem);
+    line-height: .9;
+    letter-spacing: -.07em;
+  }
+
+  .hero-copy > .button {
+    width: fit-content;
+    min-width: 0;
+  }
+
+  .registration-action {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .registration-button {
+    width: auto;
+    min-width: 176px;
+    max-width: 220px;
+  }
+}
+
+/* Mid-size desktop/laptop: stack before typography becomes cramped. */
+@media (min-width: 801px) and (max-width: 1240px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 64px 7vw 48px;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .hero h1 span {
+    font-size: clamp(3.5rem, 7.2vw, 5.5rem);
+  }
+
+  .hero h1 strong {
+    font-size: clamp(4.2rem, 8.8vw, 6.6rem);
+  }
+
+  .album-area {
+    width: min(560px, 100%);
+    min-height: 560px;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile: preserve compact centered registration CTA without affecting
+   other buttons that should span wider. */
+@media (max-width: 800px) {
+  .registration-action {
+    align-items: center;
+    text-align: center;
+  }
+
+  .registration-action p,
+  .powered-by {
+    text-align: center;
+  }
+
+  .registration-button {
+    display: inline-flex;
+    width: auto !important;
+    min-width: 176px;
+    max-width: 220px;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
